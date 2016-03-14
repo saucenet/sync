@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+    <!-- your app engine project ID goes in the application attribute
+    https://cloud.google.com/appengine/docs/java/console/#create
+    sauce-sync wont work, as it's my app engine ID :) -->
+    <application>sauce-sync</application>
+    <version>1</version>
+    <threadsafe>true</threadsafe>
+    <automatic-scaling>
+        <!-- it's good to always have one instance running, the free limit is 28 hours a day anyways
+        and you are charged for 15 minutes every time you boot up an instance see
+        http://stackoverflow.com/questions/16782136/how-are-frontend-instance-hours-calculated-on-app-engine -->
+        <min-idle-instances>1</min-idle-instances>
+    </automatic-scaling>
+
+    <system-properties>
+        <property name="java.util.logging.config.file" value="WEB-INF/logging.properties" />
+    </system-properties>
+    <public-root>/app</public-root>
+</appengine-web-app>
