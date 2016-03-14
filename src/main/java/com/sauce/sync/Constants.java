@@ -16,14 +16,6 @@ public class Constants {
     public static final String GCM_API_KEY =  "your gcm api key";
 
 
-    static{
-        System.out.println(ANDROID_CLIENT_ID);
-        System.out.println(WEB_CLIENT_ID);
-        System.out.println(IOS_CLIENT_ID);
-
-    }
-
-
     public static final String EMAIL_SCOPE = "https://www.googleapis.com/auth/userinfo.email";
     public static final String PLUS_LOGIN_SCOPE = "https://www.googleapis.com/auth/plus.login";
     public static final String PLUS_ME_SCOPE = "https://www.googleapis.com/auth/plus.me";
