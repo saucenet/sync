@@ -67,10 +67,8 @@ import static com.sauce.sync.OfyService.ofy;
 )
 public class SauceSyncEndpoint {
 
-    private static final String GCM_API_KEY = System.getProperty("gcm.api.key");
     private static final Logger log = Logger.getLogger(SauceSyncEndpoint.class.getName());
-
-
+    
     @ApiMethod(name = "userInfo", path = "userinfo", httpMethod = ApiMethod.HttpMethod.GET)
     public SauceUser getUserInfo(User user, HttpServletRequest request) throws OAuthRequestException, IOException {
         final String userId = authenticate(user, request);
