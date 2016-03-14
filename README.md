@@ -25,7 +25,7 @@ Once deployed, you will see the landing page, and you can click 'try it out' to 
 #Enabling OAuth2 
 Follow the instructions [here](https://cloud.google.com/appengine/docs/java/endpoints/auth) under "Creating OAuth 2.0 client IDs" generate the keys you want to use for your clients (iOS, Android, or Web).  
 
-When you've generated the client ids, place them in their respective places inside src/main/java/com/sauce/sync/Constants.java.  Unfortunately, they have to be passed via code as Google's annotations require client ids be present at compile time. 
+When you've generated the client ids, place them in their respective places inside src/main/java/com/sauce/sync/Constants.java. Unfortunately, they have to be passed via code as Google's annotations require client ids be present at compile time. 
 
 To authenticate in your Android/iOS/Web clients, follow Google's directions for:
  
@@ -103,7 +103,6 @@ By default, one instance will remain running even when the app is not in use. Si
 
 - create a google cloud deployment (if that's possible) to streamline deployments, otherwise a more sophisticated gradle task could do a better job for deployments.
 - make serialization use json, or java serialization in order to allow deeply nested objects
-- fix the issue where endpoints/datastore marshalls integers / small floats into longs, which in turn gets returned as a String   
 
 #License
 The MIT License (MIT)

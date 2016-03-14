@@ -1,5 +1,6 @@
 package com.sauce.sync;
 
+import com.google.api.server.spi.config.Api;
 import com.sauce.sync.models.ConflictResolutionType;
 
 /**
@@ -8,12 +9,13 @@ import com.sauce.sync.models.ConflictResolutionType;
 public class Constants {
 
     // see README.md for info on how to configure this stuff
-    public static final String WEB_CLIENT_ID = "your web client id";
-    public static final String ANDROID_CLIENT_ID = "your android client id";
-    public static final String IOS_CLIENT_ID = "your ios client id";
+    public static final String WEB_CLIENT_ID = Api.UNSPECIFIED_STRING_FOR_LIST; //put your web client id here
+    public static final String ANDROID_CLIENT_ID = Api.UNSPECIFIED_STRING_FOR_LIST; //put your android client id
+    public static final String IOS_CLIENT_ID = Api.UNSPECIFIED_STRING_FOR_LIST; //put your ios client id
+
     public static final String ANDROID_AUDIENCE = WEB_CLIENT_ID;
 
-    public static final String GCM_API_KEY =  "your gcm api key";
+    public static final String GCM_API_KEY =  null; //your gcm key goes here
 
 
     public static final String EMAIL_SCOPE = "https://www.googleapis.com/auth/userinfo.email";

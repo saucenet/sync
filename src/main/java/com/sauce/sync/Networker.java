@@ -31,6 +31,7 @@ import java.util.logging.Logger;
  */
 public class Networker {
     private static final String GOOGLE_APIS_HOST = "https://www.googleapis.com";
+    private static final String GCM_HOST = "https://gcm-http.googleapis.com/gcm/send";
     private static final Logger log = Logger.getLogger(Networker.class.getSimpleName());
     private static final Gson gson = new Gson();
     private static final GsonFactory gsonFactory = GsonFactory.getDefaultInstance();
@@ -75,6 +76,10 @@ public class Networker {
     }
 
     public static boolean sendGCMSync(String userId, String senderId) {
+        if(Constants.GCM_API_KEY == null) {
+            log.info("GCM not set up, see readme for how to configure");
+            return false;
+        }
         try {
             GCMMessage message = new GCMMessage(userId);
             log.info("message:" + message);
@@ -87,8 +92,8 @@ public class Networker {
                 body.put("data", data);
             }
 
-            //WHY THE FUCK DOES THIS ONLY TAKE A FUCKING GENERIC DATA MAP?
-            HttpRequest request = requestFactory.buildPostRequest(new GenericUrl("https://gcm-http.googleapis.com/gcm/send"),
+            //why does this only take a generic map?
+            HttpRequest request = requestFactory.buildPostRequest(new GenericUrl(GCM_HOST),
                     new JsonHttpContent(gsonFactory, body))
                     .setUnsuccessfulResponseHandler(new HttpBackOffUnsuccessfulResponseHandler(new ExponentialBackOff()))
                     .setHeaders(new HttpHeaders().setAuthorization("key=" + Constants.GCM_API_KEY));
