@@ -1,5 +1,5 @@
 *.iml
-
+.idea/
 
 # java gitignore https://github.com/github/gitignore/blob/master/Java.gitignore
 *.class
