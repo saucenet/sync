@@ -7,17 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sauce Sync</title>
 
-  <!-- Add to homescreen -->
-  <link rel="manifest" href="manifest.json">
-
-  <!-- Fallback to homescreen for Chrome <39 on Android -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="Material Design Lite">
-  <meta name="theme-color" content="#263238">
-
-
   <!-- Page styles -->
-  <link rel="stylesheet" href="http://www.getmdl.io/assets/prism-default.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.1.0/material.deep_purple-pink.min.css">
   <link rel="stylesheet" href="assets/css/main.css">
@@ -27,6 +17,21 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Material Design Lite -->
+  <script src="https://code.getmdl.io/1.1.0/material.min.js"></script>
+  <!-- Enable Prism syntax highlighting -->
+  <script src="assets/js/prism.js"></script>
+  <script src="http://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
+  <script>
+    $( document ).ready(function() {
+        var host = window.location.hostname;
+        console.log("host:", host);
+        if(host === "sync.saucenet.io") {
+          var explorerUrl = "https://sauce-sync.appspot.com/_ah/api/explorer";
+          $(".try-it-out").attr("href", explorerUrl);
+        }
+    });
+  </script>
 </head>
 <body class="about">
   <div class="image-preloader"></div>
@@ -199,7 +204,7 @@
 
             <p><b>syncId</b> - id that represents your sync state once you store the out of sync records. Should be passed to subsequent sync requests</p>
             
-            <a target="_blank" href="https://sauce-sync.appspot.com/_ah/api/explorer" class="mtop20 mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            <a target="_blank" href="/_ah/api/explorer" class="try-it-out mtop20 mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
               Try it out
             </a>
             <hr class="mtop20">
@@ -231,7 +236,7 @@
 
             <p><b>type</b> - Type of object you want to filter, if not set any object type that matches the filter will be returned</p>
 
-            <a target="_blank" href="https://sauce-sync.appspot.com/_ah/api/explorer" class="mtop20 mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            <a target="_blank" href="/_ah/api/explorer" class="try-it-out mtop20 mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
               Try it out
             </a>
             <hr class="mtop20">
@@ -268,7 +273,7 @@
             
             <p><b>savedEntities (required)</b> - all the objects you created, updated, or deleted in your save request.  Created entities will come back with their "entityId" populated. </p>
             
-            <a target="_blank" href="https://sauce-sync.appspot.com/_ah/api/explorer" class="mtop20 mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            <a target="_blank" href="/_ah/api/explorer" class="try-it-out mtop20 mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
               Try it out
             </a>
             <hr class="mtop20">
@@ -282,7 +287,7 @@
 DELETE https://sauce-sync.appspot.com/_ah/api/sauce/v1/purge
             </code></pre></div>
             Note that this method has no body and no response.  A successful purge will return a 204. 
-            <a target="_blank" href="https://sauce-sync.appspot.com/_ah/api/explorer" class="mtop20 mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            <a target="_blank" href="/_ah/api/explorer" class="try-it-out mtop20 mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
               Try it out
             </a>
             <hr class="mtop20">
@@ -305,7 +310,7 @@ GET https://sauce-sync.appspot.com/_ah/api/sauce/v1/userinfo
 }      
             </code></pre></div>
 
-            <a target="_blank" href="https://sauce-sync.appspot.com/_ah/api/explorer" class="mtop20 mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            <a target="_blank" href="/_ah/api/explorer" class="try-it-out mtop20 mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
               Try it out
             </a>
             </div>
@@ -323,10 +328,5 @@ GET https://sauce-sync.appspot.com/_ah/api/sauce/v1/userinfo
       </footer>
     </main>
   </div>
-
-        <!-- Material Design Lite -->
-        <script src="https://code.getmdl.io/1.1.0/material.min.js"></script>
-        <!-- Enable Prism syntax highlighting -->
-        <script src="assets/js/prism.js"></script>
-      </body>
-      </html>
+</body>
+</html>
