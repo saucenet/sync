@@ -1,6 +1,6 @@
 # Sauce Sync
 
-[sync.saucenet.io](http://sync.saucenet.io)
+A lightweight BaaS built on Google's Cloud [sync.saucenet.io](http://sync.saucenet.io)
 
 # Getting Started
 
