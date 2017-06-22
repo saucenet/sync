@@ -83,7 +83,7 @@ public class SauceSyncEndpoint {
 
 
         //in order to make the transaction idempotent we generate the IDs outside of a transaction
-        //this will also allow me to implement the 'refs' feature
+        //this will also allow us to implement the 'refs' feature
         List<SauceEntity> entitiesThatNeedIds = new ArrayList<SauceEntity>();
         //first find all entities that are null and generateIds for them
 
