@@ -2,6 +2,7 @@
 
 A lightweight BaaS built on Google's Cloud [sync.saucenet.io](http://sync.saucenet.io)
 
+
 # Getting Started
 
 1. Fork or clone the project and navigate to it's home directory.  
@@ -9,12 +10,16 @@ A lightweight BaaS built on Google's Cloud [sync.saucenet.io](http://sync.saucen
 
 
 # Deploying a Test Server
+
 Run `gradle appengineRun` in your terminal
 
-You can interact with the local api using the Google API explorer: just click "Api Explorer" on the homepage (localhost:8080). Your browser will complain about some security concerns, but you can follow Google's directions on that page to begin making api calls against the local test server.
+Use Google API explorer to interact with the local API by clicking "API Explorer" from homepage (localhost:8080). 
+
+Your browser will complain about some security concerns, but you can follow Google's directions on that page to begin making API calls against the local test server.
 
 
 # Deploying to Google App Engine
+
 Before you deploy to app engine you'll need to do the following:
 
 1. Signup for [Google Cloud](https://appengine.google.com/) if you havent already
@@ -26,7 +31,9 @@ Note that sometimes a build can hang while deploying to app engine: https://code
 
 Once deployed, you will see the landing page, and you can click 'try it out' to begin making calls against your deployment of Sauce Sync.
 
+
 # Enabling OAuth2
+
 Follow the [instructions](https://cloud.google.com/appengine/docs/java/endpoints/auth) under "Creating OAuth 2.0 client IDs" to generate the keys you want to use for your clients (iOS, Android, or Web).  
 
 When you've generated the client ids, place them in their respective places inside `src/main/java/com/sauce/sync/Constants.java`. Unfortunately, they have to be passed via code as Google's annotations require client ids be present at compile time. 
@@ -39,6 +46,7 @@ Follow these instructions to authenticate in your client:
  
 
 # Enabling GCM (Push Notifications)
+
 For your clients to get push notifications, you will have to enable GCM in your Cloud account and place your server key inside `src/main/java/com/sauce/sync/Constants.java`. 
 
 Follow Google's GCM [documentation](https://developers.google.com/cloud-messaging/) and go through the wizard for generating files for your Android or iOS apps.  
@@ -49,31 +57,38 @@ After going through Google's wizard, you should see your generated GCM server ke
  
 
 # Listening for Push Notifications in Clients
-Sauce Sync uses topic-style notifications since there is no payload required for clients to stay in sync. A GCM message just tells a client that they should call the `sync` api method.
+
+Sauce Sync uses topic-style notifications since there is no payload required for clients to stay in sync. A GCM message just tells a client that they should call the `sync` API method.
 
 Be sure to read Google's documentation on [topic messaging](https://developers.google.com/cloud-messaging/topic-messaging#sending_topic_messages_from_the_server) if you are unsure of how this works. 
 
 ## Android
+
 To listen for GCM topic messages on android, follow [Google's Android documentation] (https://developers.google.com/cloud-messaging/android/client)
 
 Be sure to take a look at [Android's downstream topic messages](https://developers.google.com/cloud-messaging/downstream#receiving-messages-on-an-ios-client-app)
 
 ## iOS
+
 To listen for GCM topic messages on iOS, follow [Google's GCM documentation for iOS](https://developers.google.com/cloud-messaging/ios/client)
 
 
 # Generating SDKs 
+
 The SDKs are generated using Google Cloud Endpoints, so be sure to brush up on [how it works](https://cloud.google.com/appengine/docs/java/endpoints/)
 
 ## Android
+
 Follow [Google's Android Cloud Endpoints documentation](https://cloud.google.com/appengine/docs/java/endpoints/consume_android) 
 
 Alternatively, you can find a copy of the generated clients inside the build directory after running `gradle appengineEndpointsExpandClientLibs`
 
 ## Javascript
-Follow [Google's Cloud Endpoints documentation](https://cloud.google.com/appengine/docs/java/endpoints/consume_js)  The JS client is a lightweight wrapper around the REST api. 
+
+Follow [Google's Cloud Endpoints documentation](https://cloud.google.com/appengine/docs/java/endpoints/consume_js)  The JS client is a lightweight wrapper around the REST API. 
 
 ## iOS
+
 Follow [Google's iOS Cloud Endpoints documentation](https://cloud.google.com/appengine/docs/java/endpoints/consume_ios)
 
 
