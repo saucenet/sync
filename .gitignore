@@ -21,6 +21,9 @@ hs_err_pid*
 #gradle gitignore https://github.com/github/gitignore/blob/master/Gradle.gitignore
 .gradle
 build/
+gradle/
+gradlew*
+
 
 # Ignore Gradle GUI config
 gradle-app.setting
