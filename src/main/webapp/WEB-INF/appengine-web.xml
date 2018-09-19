@@ -6,6 +6,8 @@
     <application>sauce-sync</application>
     <version>1</version>
     <threadsafe>true</threadsafe>
+    <runtime>java8</runtime>
+    <url-stream-handler>urlfetch</url-stream-handler>
     <automatic-scaling>
         <!-- it's good to always have one instance running, the free limit is 28 hours a day anyways
         and you are charged for 15 minutes every time you boot up an instance see
